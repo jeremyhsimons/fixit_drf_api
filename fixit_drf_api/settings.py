@@ -62,7 +62,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-jeremyhsimo-fixitdrfapi-szyb3wxzbbd.ws-eu104.gitpod.io',
-    'fixit-drf-api.herokuapp.com'
+    'fixit-drf-api-b3b58b2bc39c.herokuapp.com'
 ]
 
 
