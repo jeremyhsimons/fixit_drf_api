@@ -11,12 +11,11 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     image = models.ImageField(
-        upload_to='images/', default="../default_profile_uk3zc1"
+        upload_to='images/', blank=True
     )
-    upvotes_count = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    category = models.CharField(max_length=300, choices=Choices)
+    category = models.CharField(max_length=300, choices=CHOICES)
 
     class Meta:
         ordering = ['-created_at']
