@@ -20,5 +20,5 @@ class PostSerializer(serializers.ModelSerializer):
             "id", "author", "created_at",
             "updated_at", "content", "image",
             "category", "is_owner", "profile_id",
-            "profile_image",
+            "profile_image", 'post_owner',
         ]
