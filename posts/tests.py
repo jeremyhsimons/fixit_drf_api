@@ -50,19 +50,34 @@ class PostListViewTests(APITestCase):
         post = Post.objects.filter(pk=1)
         self.assertEqual(post[0].content, 'this is a test post')
 
+
+class PostDetailViewTests(APITestCase):
+    """
+    A test module for the PostDetail view.
+    """
+    def setUp(self):
+        """
+        Creates test users for this test module.
+        """
+        test1 = User.objects.create_user(username='test', password="test123")
+        test2 = User.objects.create_user(username='test2', password="test456")
+        Post.objects.create(
+            author=test1,
+            content="this is test1's post",
+            category="BC"
+        )
+        Post.objects.create(
+            author=test2,
+            content="this is test2's post",
+            category="BC"
+        )
+
     def test_can_edit_own_post(self):
         """
         Tests that an authenticated user can
         edit a post that belongs to them
         """
         self.client.login(username='test', password="test123")
-        self.client.post(
-            '/posts/', {
-                'content': 'this is a test post',
-                'category': 'BC',
-                'author': 1
-            }
-        )
         response = self.client.put(
             '/posts/1/', {
                 'content': 'this is an updated test post',
@@ -72,4 +87,20 @@ class PostListViewTests(APITestCase):
         )
         post = Post.objects.filter(pk=1)
         self.assertEqual(post[0].content, 'this is an updated test post')
-        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        print(response.content)
+
+    def test_user_cannot_edit_other_users_post(self):
+        """
+        Tests that a user can't update a post
+        that doesn't belong to them.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.put(
+            '/posts/2/', {
+                'content': 'this is an altered test post',
+                'category': 'EC',
+                'author': 2
+            }
+        )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
