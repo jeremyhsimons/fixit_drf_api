@@ -17,13 +17,12 @@ class ProfileListViewTests(APITestCase):
         """
         Test that the user can retrieve profile list
         """
-        tester = User.objects.get(username='test')
         response = self.client.get('/profiles/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_can_edit_own_profile(self):
         """
-        Test user can update their own profile. 
+        Test user can update their own profile.
         Status field is required.
         """
         self.client.login(username='test', password="test123")
