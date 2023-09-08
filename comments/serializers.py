@@ -24,11 +24,11 @@ class CommentSerializer(serializers.ModelSerializer):
         return naturaltime(obj.updated_at)
 
     class Meta:
-        model = Post
+        model = Comment
         fields = [
-            "id", "author", "created_at",
-            "updated_at", "content", "image",
-            "category", "is_owner", "profile_id",
+            "id", "author", "post", "created_at",
+            "updated_at", "content",
+            "is_owner", "profile_id",
             "profile_image", 'comment_owner',
         ]
 
