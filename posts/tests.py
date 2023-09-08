@@ -72,6 +72,14 @@ class PostDetailViewTests(APITestCase):
             category="BC"
         )
 
+    def test_can_retrieve_post_by_id(self):
+        """
+        Tests that a user can fetch a specific post. 
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.get("/posts/2/")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
     def test_can_edit_own_post(self):
         """
         Tests that an authenticated user can
@@ -88,7 +96,6 @@ class PostDetailViewTests(APITestCase):
         post = Post.objects.filter(pk=1)
         self.assertEqual(post[0].content, 'this is an updated test post')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        print(response.content)
 
     def test_user_cannot_edit_other_users_post(self):
         """
@@ -103,4 +110,20 @@ class PostDetailViewTests(APITestCase):
                 'author': 2
             }
         )
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_user_can_delete_own_post(self):
+        """
+        Checks that an authorised user can delete their own posts.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete("/posts/1/")
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_user_cannot_delete_other_users_posts(self):
+        """
+        Checks that users cannot delete other users' posts.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete("/posts/2/")
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
