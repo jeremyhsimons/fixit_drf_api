@@ -74,7 +74,7 @@ class PostDetailViewTests(APITestCase):
 
     def test_can_retrieve_post_by_id(self):
         """
-        Tests that a user can fetch a specific post. 
+        Tests that a user can fetch a specific post.
         """
         self.client.login(username='test', password="test123")
         response = self.client.get("/posts/2/")
