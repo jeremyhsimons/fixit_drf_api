@@ -125,3 +125,23 @@ class CommentDetailViewTests(APITestCase):
         comment = Comment.objects.filter(pk=2)[0]
         self.assertNotEqual(comment.content, "UPDATED COMMENT")
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_user_can_delete_comment(self):
+        """
+        Tests that a user can delete their own comment.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete('/comments/1')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_user_cannot_delete_others_comment(self):
+        """
+        Tests that a user can't delete
+        someone elses comment.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete('/comments/2')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_unauth_user_cannot_edit_comment(self):
+        
