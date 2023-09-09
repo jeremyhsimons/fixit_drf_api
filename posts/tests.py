@@ -135,9 +135,9 @@ class PostDetailViewTests(APITestCase):
         response = self.client.delete("/posts/2/")
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
-    def test_unauthenticated_cannot_delete_post(self):
+    def test_unauthenticated_cannot_edit_post(self):
         """
-        Checks that unauthenticated users cannot delete posts.
+        Checks that unauthenticated users cannot edit posts.
         """
         response = self.client.put(
             '/posts/2/', {
