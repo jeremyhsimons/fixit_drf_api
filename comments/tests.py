@@ -61,4 +61,67 @@ class CommentListViewTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
 
-# class CommentDetailViewTests(APITestCase):
+class CommentDetailViewTests(APITestCase):
+    """
+    A suite of tests for the comment detail view.
+    """
+    def setUp(self):
+        """
+        Creates test users for this test module.
+        """
+        test1 = User.objects.create_user(username='test', password="test123")
+        test2 = User.objects.create_user(username='test2', password="test456")
+        post1 = Post.objects.create(
+            author=test1,
+            content="this is test1's post",
+            category="BC"
+        )
+        post2 = Post.objects.create(
+            author=test2,
+            content="this is test2's post",
+            category="BC"
+        )
+        Comment.objects.create(
+            author=test1,
+            post=post2,
+            content="This is test comment 1 on post 2"
+        )
+        Comment.objects.create(
+            author=test2,
+            post=post1,
+            content="This is test comment 2 on post 1"
+        )
+
+    def test_user_can_retrieve_comment_by_id(self):
+        """
+        Tests a user can get a single comment.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.get('/comments/1')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_user_can_edit_comment(self):
+        """
+        Tests a user can edit their own comment.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.put('/comments/1', {
+            'author': 1,
+            'content': "UPDATED COMMENT"
+        })
+        comment = Comment.objects.filter(pk=1)[0]
+        self.assertEqual(comment.content, "UPDATED COMMENT")
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_user_cannot_edit_other_users_comment(self):
+        """
+        Tests that a user can't edit someone elses comment.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.put('/comments/2', {
+            'author': 2,
+            'content': "UPDATED COMMENT"
+        })
+        comment = Comment.objects.filter(pk=2)[0]
+        self.assertNotEqual(comment.content, "UPDATED COMMENT")
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
