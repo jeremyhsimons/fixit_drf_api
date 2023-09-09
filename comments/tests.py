@@ -48,5 +48,17 @@ class CommentListViewTests(APITestCase):
         })
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+    def test_non_auth_user_cannot_create_comment(self):
+        """
+        Tests that a user cannot comment if they are not
+        logged in.
+        """
+        response = self.client.post('/comments/', {
+            'author': 1,
+            'post': 1,
+            'content': "This is a comment"
+        })
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
 
 # class CommentDetailViewTests(APITestCase):
