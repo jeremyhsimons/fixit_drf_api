@@ -5,7 +5,7 @@ from django.http import Http404
 
 from .models import Post
 from .serializers import PostSerializer
-from fixit_drf_api.permissions import IsPostOwnerOrReadOnly
+from fixit_drf_api.permissions import IsPostCommentOwnerOrReadOnly
 
 
 class PostList(APIView):
@@ -35,7 +35,7 @@ class PostList(APIView):
 
 class PostDetail(APIView):
     serializer_class = PostSerializer
-    permission_classes = [IsPostOwnerOrReadOnly]
+    permission_classes = [IsPostCommentOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
