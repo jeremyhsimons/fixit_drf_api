@@ -15,3 +15,12 @@ class StarList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class StarDetail(generics.RetrieveDestroyAPIView):
+    """
+    Handles the retrieval and deletion of star instances.
+    """
+    serializer_class = StarSerializer
+    permission_classes = [IsBookmarkOwnerOrReadOnly]
+    queryset = Star.objects.all()
