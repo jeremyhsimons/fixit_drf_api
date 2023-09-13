@@ -32,4 +32,5 @@ urlpatterns = [
     path('', include('bookmarks.urls')),
     path('', include('stars.urls')),
     path('', include('upvotes_post.urls')),
+    path('', include('upvotes_comment.urls')),
 ]
