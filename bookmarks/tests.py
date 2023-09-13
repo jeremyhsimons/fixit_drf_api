@@ -131,3 +131,11 @@ class BookmarkDetailTest(APITestCase):
         self.client.login(username='test', password="test123")
         response = self.client.delete('/bookmarks/2/')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_unauth_user_cannot_delete_bookmark(self):
+        """
+        Checks that users can't delete bookmarks if they
+        are not logged in.
+        """
+        response = self.client.delete('/bookmarks/1/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
