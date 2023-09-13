@@ -10,7 +10,7 @@ class PostUpvoteSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
 
     class Meta:
-        model = Star
+        model = PostUpvote
         fields = [
             "owner",
             "post",
