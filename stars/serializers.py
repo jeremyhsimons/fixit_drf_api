@@ -10,7 +10,7 @@ class StarSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
 
     class Meta:
-        model = Bookmark
+        model = Star
         fields = [
             "owner",
             "profile",
