@@ -12,7 +12,7 @@ class Star(models.Model):
     profile = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
-        related_name='bookmarks'
+        related_name='stars'
     )
     created_at = models.DateTimeField(auto_now_add=True)
 
