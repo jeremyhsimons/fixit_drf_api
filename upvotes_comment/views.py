@@ -15,3 +15,13 @@ class CommentUpvoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    
+class CommentUpvoteDetail(generics.RetrieveDestroyAPIView):
+    """
+    A view for retrieving and deleting
+    comment upvote instances.
+    """
+    serializer_class = CommentUpvoteSerializer
+    permission_classes = [IsBookmarkOwnerOrReadOnly]
+    queryset = CommentUpvote.objects.all()
