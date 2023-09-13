@@ -1,12 +1,11 @@
 from django.db import IntegrityError
 from rest_framework import serializers
-from .models import Bookmark
+from .models import Star
 
 
-class BookmarkSerializer(serializers.ModelSerializer):
+class StarSerializer(serializers.ModelSerializer):
     """
-    A serializer to handle bookmark data moving to
-    and from the database.
+    A serializer to handle star data entering the db.
     """
     owner = serializers.ReadOnlyField(source="owner.username")
 
@@ -14,7 +13,7 @@ class BookmarkSerializer(serializers.ModelSerializer):
         model = Bookmark
         fields = [
             "owner",
-            "post",
+            "profile",
             "created_at",
             "id"
         ]
@@ -24,5 +23,5 @@ class BookmarkSerializer(serializers.ModelSerializer):
             return super().create(validated_data)
         except IntegrityError:
             raise serializers.ValidationError({
-                "detail": "possible bookmark duplication"
+                "detail": "possible star duplication"
             })
