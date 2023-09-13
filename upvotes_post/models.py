@@ -6,9 +6,8 @@ from posts.models import Post
 
 class PostUpvote(models.Model):
     """
-    A class for users bookmarks to save a post
-    for later viewing. It contains both the user
-    and relevant post as foreign keys.
+    A class for users's upvotes for posts.
+    It contains both the user and relevant post as foreign keys.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
