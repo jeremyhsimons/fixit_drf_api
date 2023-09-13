@@ -14,3 +14,12 @@ class PostUpvoteList(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class PostUpvoteDetail(generics.RetrieveDestroyAPIView):
+    """
+    A view for retrieving and deleting upvote instances.
+    """
+    serializer_class = PostUpvoteSerializer
+    permission_classes = [IsBookmarkOwnerOrReadOnly]
+    queryset = PostUpvote.objects.all()
