@@ -39,4 +39,23 @@ class StarListTest(APITestCase):
         })
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
-    def test_cannot_duplicate_star(self)
+    def test_cannot_duplicate_star(self):
+        """
+        Checks that users can't star the same profile twice.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.post('/stars/', {
+            'owner': 1,
+            'profile': 2,
+        })
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_unauth_user_cant_create_star(self):
+        """
+        Checks that users can't star if they're logged out.
+        """
+        response = self.client.post('/stars/', {
+            'owner': 1,
+            'profile': 1,
+        })
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
