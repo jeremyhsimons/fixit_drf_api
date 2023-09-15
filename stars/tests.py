@@ -59,3 +59,48 @@ class StarListTest(APITestCase):
             'profile': 1,
         })
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+
+class StarDetailTest(APITestCase):
+    """
+    A module of tests for the StarDetail view.
+    """
+    def setUp(self):
+        """
+        Create user, profile, and star for test db
+        """
+        test1 = User.objects.create_user(username='test', password="test123")
+        test2 = User.objects.create_user(username='test2', password="test456")
+        star1 = Star.objects.create(owner=test1, profile=test2.profile)
+        star2 = Star.objects.create(owner=test2, profile=test1.profile)
+
+    def test_can_retrieve_star(self):
+        """
+        Checks that a user can retrive star
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.get('/stars/1/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_can_delete_star(self):
+        """
+        Checks that a user can delete a star they own
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete('/stars/1/')
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_unauth_user_cannot_delete_star(self):
+        """
+        Checks that stars can't be deleted by unuathorised users.
+        """
+        response = self.client.delete('/stars/1/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_user_cannot_delete_others_star(self):
+        """
+        Checks that a user cannot delete a star they don't own
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.delete('/stars/2/')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
