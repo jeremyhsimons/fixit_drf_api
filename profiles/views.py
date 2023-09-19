@@ -1,19 +1,30 @@
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
+
+from rest_framework import generics, filters
 from .models import Profile
 from .serializers import ProfileSerializer
 from django.http import Http404
 from fixit_drf_api.permissions import IsOwnerOrReadOnly
 
 
-class ProfileList(APIView):
-    def get(self, request):
-        profiles = Profile.objects.all()
-        serializer = ProfileSerializer(
-            profiles, many=True, context={'request': request}
-            )
-        return Response(serializer.data)
+# class ProfileList(APIView):
+#     def get(self, request):
+#         profiles = Profile.objects.all()
+#         serializer = ProfileSerializer(
+#             profiles, many=True, context={'request': request}
+#             )
+#         return Response(serializer.data)
+
+
+class ProfileList(generics.ListAPIView):
+    """
+    Profile creation handled by django signals.
+    This returns a list of all profiles.
+    """
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
 
 
 class ProfileDetail(APIView):
