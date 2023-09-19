@@ -2,7 +2,7 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 
 from .models import Comment
-from upvotes_comment import CommentUpvote
+from upvotes_comment.models import CommentUpvote
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def get_upvote_id(self, obj):
         user = self.context['request']
-        if user.is_authenticated():
+        if user.is_authenticated:
             upvote = CommentUpvote.objects.filter(
                 owner=user, comment=obj
             ).first()

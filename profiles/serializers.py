@@ -14,11 +14,11 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     def get_star_id(self, obj):
         user = self.context['request'].user
-        if user.is_authenticated():
+        if user.is_authenticated:
             star = Star.objects.filter(
-                owner=user, post=obj
+                owner=user, profile=obj
             ).first()
-            return like.id if like else None
+            return star.id if star else None
         return None
 
     def get_is_owner(self, obj):
