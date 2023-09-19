@@ -1,10 +1,25 @@
 from rest_framework import serializers
+
 from .models import Profile
+from stars.models import Star
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    A serializer to handle profile data to and from the db.
+    """
     profile_owner = serializers.ReadOnlyField(source="profile_owner.username")
     is_owner = serializers.SerializerMethodField()
+    star_id = serializers.SerializerMethodField()
+
+    def get_star_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated():
+            star = Star.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return like.id if like else None
+        return None
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -15,5 +30,5 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = [
             "id", "profile_owner", "created_at",
             "updated_at", "name", "bio", "image",
-            "status", "is_owner",
+            "status", "is_owner", 'star_id'
         ]
