@@ -11,6 +11,8 @@ class ProfileSerializer(serializers.ModelSerializer):
     profile_owner = serializers.ReadOnlyField(source="profile_owner.username")
     is_owner = serializers.SerializerMethodField()
     star_id = serializers.SerializerMethodField()
+    posts_count = serializers.ReadOnlyField()
+    stars_count = serializers.ReadOnlyField()
 
     def get_star_id(self, obj):
         user = self.context['request'].user
@@ -30,5 +32,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = [
             "id", "profile_owner", "created_at",
             "updated_at", "name", "bio", "image",
-            "status", "is_owner", 'star_id'
+            "status", "is_owner", 'star_id',
+            "posts_count", "stars_count"
         ]

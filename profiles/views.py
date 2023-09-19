@@ -15,8 +15,19 @@ class ProfileList(generics.ListAPIView):
     Profile creation handled by django signals.
     This returns a list of all profiles.
     """
-    queryset = Profile.objects.all()
+    queryset = Profile.objects.annotate(
+        posts_count=Count("profile_owner__post", distinct=True),
+        stars_count=Count('stars', distinct=True)
+    ).order_by('-created_at')
     serializer_class = ProfileSerializer
+    filter_backends = [
+        filters.OrderingFilter,
+    ]
+    ordering_fields = [
+        'posts_count',
+        'stars_count',
+        'stars__created_at'
+    ]
 
 
 # class ProfileDetail(APIView):
