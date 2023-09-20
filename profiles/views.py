@@ -22,7 +22,8 @@ class ProfileList(generics.ListAPIView):
         DjangoFilterBackend
     ]
     filterset_fields = [
-        'stars__owner__profile'
+        'stars__owner__profile',
+        'status'
     ]
     ordering_fields = [
         'posts_count',
