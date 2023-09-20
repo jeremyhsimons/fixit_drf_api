@@ -1,10 +1,7 @@
-from rest_framework import status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from django.http import Http404
-
+from rest_framework import permissions
 from django.db.models import Count
 from rest_framework import generics, filters
+
 from .models import Post
 from .serializers import PostSerializer
 from fixit_drf_api.permissions import IsPostCommentOwnerOrReadOnly

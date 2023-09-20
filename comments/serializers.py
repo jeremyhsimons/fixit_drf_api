@@ -18,9 +18,10 @@ class CommentSerializer(serializers.ModelSerializer):
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
     upvote_id = serializers.SerializerMethodField()
+    upvotes_count = serializers.ReadOnlyField()
 
     def get_upvote_id(self, obj):
-        user = self.context['request']
+        user = self.context['request'].user
         if user.is_authenticated:
             upvote = CommentUpvote.objects.filter(
                 owner=user, comment=obj
@@ -44,7 +45,8 @@ class CommentSerializer(serializers.ModelSerializer):
             "id", "author", "post", "created_at",
             "updated_at", "content",
             "is_owner", "profile_id",
-            "profile_image", 'comment_owner', 'upvote_id'
+            "profile_image", 'comment_owner', 'upvote_id',
+            "upvotes_count",
         ]
 
 
