@@ -6,6 +6,9 @@ from rest_framework.test import APITestCase
 
 
 class ProfileListViewTests(APITestCase):
+    """
+    A suite of tests for the profile list view.
+    """
     def setUp(self):
         """
         Creates test users for test module
@@ -18,6 +21,26 @@ class ProfileListViewTests(APITestCase):
         Test that the user can retrieve profile list
         """
         response = self.client.get('/profiles/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+class ProfileDetailTests(APITestCase):
+    """
+    A module for profile detail view tests
+    """
+    def setUp(self):
+        """
+        Creates test users for test module
+        """
+        User.objects.create_user(username='test', password="test123")
+        User.objects.create_user(username='test2', password="test456")
+
+    def test_can_retrieve_profile(self):
+        """
+        Checks that a user can get a single profile.
+        """
+        self.client.login(username='test', password="test123")
+        response = self.client.get('/profiles/2/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_can_edit_own_profile(self):
