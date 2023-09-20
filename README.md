@@ -39,7 +39,19 @@ This documentation will detail the features available via the API, the design, e
 
 ## Project goals
 
+### For new users
+* to sign up to a community of DIY / fix-it-yourself enthusiasts.
+* Interact with other users who are able to help me with my own DIY problems
+
+### For existing users
+* To interact with other users and get help with my own DIY problems, or help others with theirs.
+* To gain recognition for the help I render to other users.
+
 ## User Experience
+
+### User stories.
+
+The following user stories reflect the actions a site admin might want to perform on the database.
 
 ## Technical Design
 
