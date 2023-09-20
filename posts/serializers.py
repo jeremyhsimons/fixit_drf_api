@@ -13,6 +13,8 @@ class PostSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     bookmark_id = serializers.SerializerMethodField()
     upvote_id = serializers.SerializerMethodField()
+    comments_count = serializers.ReadOnlyField()
+    upvotes_count = serializers.ReadOnlyField()
 
     def get_bookmark_id(self, obj):
         user = self.context['request'].user
@@ -43,5 +45,5 @@ class PostSerializer(serializers.ModelSerializer):
             "updated_at", "content", "image",
             "category", "is_owner", "profile_id",
             "profile_image", 'post_owner', 'bookmark_id',
-            "upvote_id"
+            "upvote_id", "comments_count", "upvotes_count",
         ]

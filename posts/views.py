@@ -15,8 +15,17 @@ class PostList(generics.ListCreateAPIView):
     List all profiles and create them if authenticated.
     """
     queryset = Post.objects.annotate(
-        comments_count=C
-    )
+        comments_count=Count('comment', distinct=True),
+        upvotes_count=Count('post_upvotes', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter,
+    ]
+    ordering_fields = [
+        'comments_count',
+        'upvotes_count',
+        'post_upvotes__created_at'
+    ]
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = PostSerializer
 
@@ -29,6 +38,9 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     Retrieve, update own, delete own posts for
     authenticated users.
     """
-    queryset = Post.objects.all()
+    queryset = Post.objects.annotate(
+        comments_count=Count('comment', distinct=True),
+        upvotes_count=Count('post_upvotes', distinct=True)
+    ).order_by('-created_at')
     permission_classes = [IsPostCommentOwnerOrReadOnly]
     serializer_class = PostSerializer
