@@ -1,6 +1,7 @@
 from rest_framework import permissions
 from django.db.models import Count
 from rest_framework import generics, filters
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Post
 from .serializers import PostSerializer
@@ -18,6 +19,12 @@ class PostList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend
+    ]
+    filterset_fields = [
+        'bookmarks__owner__profile',  # return posts a user has bookmarked.
+        'author__profile',  # return posts a user has created.
+        'category'  # filter posts based on the categories available.
     ]
     search_fields = [
         'author__username',
