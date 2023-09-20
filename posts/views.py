@@ -17,6 +17,11 @@ class PostList(generics.ListCreateAPIView):
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+    search_fields = [
+        'author__username',
+        'content'
     ]
     ordering_fields = [
         'comments_count',
