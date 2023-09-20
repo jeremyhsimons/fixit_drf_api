@@ -53,6 +53,40 @@ This documentation will detail the features available via the API, the design, e
 
 The following user stories reflect the actions a site admin might want to perform on the database.
 
+#### Authentication
+* As a new user I want to sign up and create a new account so I can use the site.
+* As an existing user I want to log in as an existing user so that I can carry on following the threads that I saved.
+* As an authenticated user I want to sign out of my account so that I can securely leave the site.
+
+#### Navigation
+* As an authenticated user I want to be directed to my homepage feed so that I can see what the latest posts are.
+* As an authenticated user I want to easily navigate back to the home page feed so that I can return to the latest posts.
+* As an authenticated user I want to easily navigate to a page showing the trending / most up-voted posts on the site.
+* As an authenticated user I want to easily navigate to my profile so I can view it / edit it / see my own posts
+* As an authenticated user I want to easily navigate to the signout option so I can leave the site without hassle.
+
+#### Interaction
+* As an authenticated user I want to create a new post on the site so that I can ask my specific question to the community.
+* As an authenticated user I want to edit my post so that I can amend my query/photo.
+* As an authenticated user I want to delete my post so that I can remove my content from the site.
+* As an authenticated user I want to be able to upload images as part of my post so that I can illustrate my point.
+* As an authenticated user I want to access a page of my posts so far so that I can keep track of the interactions I have had on the site.
+* As an authenticated user I want to upvote helpful posts that other people have made.
+* As an authenticated user I want to comment on other people’s posts to help them with their query.
+* As an authenticated user I want to edit my comment so that I can amend/clarify what I said.
+* As an authenticated user I want to delete my comment so I can remove what I no longer say on the site.
+* As an authenticated user I want to upvote other people’s helpful comments.
+* As an authenticated user I want to give a ‘star’ to users who make helpful contributions to the site.
+
+#### Feed
+* As an authenticated user I want to be able to see the most up-voted posts on the site so I can keep up with what is popular
+* As an authenticated user I want to see the posts that I have voted for so that I can keep track of posts I like/found helpful.
+* As an authenticated user I want to view the most ‘starred’ users so that I can see the contributions of helpful users.
+
+#### Profiles
+* As an authenticated user I want to edit my profile so that other users can find out more about me.
+* As an authenticated user I want to be able to view other users’ profiles and posts so that I can comment on their posts.
+
 ## Technical Design
 
 ## Features
