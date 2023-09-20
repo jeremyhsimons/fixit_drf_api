@@ -66,3 +66,15 @@ class ProfileDetailTests(APITestCase):
         profile = Profile.objects.filter(pk=2).first()
         self.assertEqual(profile.bio, '')
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_unauth_user_cannot_edit_profile(self):
+        """
+        Checks that a user can't edit a profile if they're
+        not logged in.
+        """
+        response = self.client.put(
+            '/profiles/2/', {'name': 'This is a new bio'}
+        )
+        profile = Profile.objects.filter(pk=2).first()
+        self.assertEqual(profile.bio, '')
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
