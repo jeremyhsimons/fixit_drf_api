@@ -125,6 +125,27 @@ The following user stories reflect the actions a site admin might want to perfor
 |  | updated_at | DateTime | auto_now_add=True |
 |  | category | char | max_length=300, choices=CHOICES |
 
+#### Comment model
+* This represents users' comment data in the database.
+* Contains both post and user as foreign keys.
+
+| Key | Name | Type | Validation |
+|---|---|---|---|
+| fk | author | User | on_delete=models.CASCADE, null=True, |
+| fk | post | Post | on_delete=models.CASCADE, null=True, |
+|  | content | textfield | blank=False |
+|  | created_at | DateTime | auto_now_add=True |
+|  | updated_at | DateTime | auto_now_add=True |
+
+#### Star, Bookmark, Post upvote, Comment upvote models.
+* These models represent user interactions with other users' content and the data models for each are essentially the same.
+
+| Key | Name | Type | Validation |
+|---|---|---|---|
+| fk | owner | User | on_delete=models.CASCADE, null=True, |
+| fk | post | Post | on_delete=models.CASCADE, null=True, |
+|  | created_at | DateTime | auto_now_add=True |
+
 ### Endpoints
 
 ### Database Schema
