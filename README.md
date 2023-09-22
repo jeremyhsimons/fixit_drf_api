@@ -148,6 +148,25 @@ The following user stories reflect the actions a site admin might want to perfor
 
 ### Endpoints
 
+#### List and create instances
+* List all profiles: ../profiles/
+* List all posts: ../posts/
+* List all comments: ../comments/
+* List all bookmarks: ../bookmarks/
+* List all stars: ../stars/
+* List all post-upvotes: ../post-upvotes/
+* List all comment-upvotes: ../comment-upvotes/
+
+#### Retrieve, update and delete instances
+* access single profile: ../profiles/primary-key
+* access single post: ../post/primary-key
+* access single comment: ../comment/primary-key
+* access single star: ../star/primary-key
+* access single bookmark: ../bookmark/primary-key
+* access single post-upvote: ../post-upvote/primary-key
+* access single comment-upvote: ../comment-upvote/primary-key
+
+
 ### Database Schema
 
 Below is an entity relationship diagram for the project. It details how the models detailed above interact with one another.
