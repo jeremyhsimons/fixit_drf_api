@@ -1,9 +1,11 @@
-from django.test import TestCase
-from django.contrib.auth.models import User
-from .models import PostUpvote
-from posts.models import Post
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import status
 from rest_framework.test import APITestCase
+from django.contrib.auth.models import User
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
+from .models import PostUpvote
+from posts.models import Post
 
 
 class PostUpvoteListTest(APITestCase):

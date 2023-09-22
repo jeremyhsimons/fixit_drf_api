@@ -1,4 +1,7 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import generics, permissions
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
 from fixit_drf_api.permissions import IsBookmarkOwnerOrReadOnly
 from .models import PostUpvote
 from .serializers import PostUpvoteSerializer
