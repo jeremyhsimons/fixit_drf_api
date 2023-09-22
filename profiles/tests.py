@@ -1,8 +1,10 @@
-from django.test import TestCase
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.contrib.auth.models import User
-from .models import Profile
 from rest_framework import status
 from rest_framework.test import APITestCase
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
+from .models import Profile
 
 
 class ProfileListViewTests(APITestCase):
