@@ -91,6 +91,28 @@ The following user stories reflect the actions a site admin might want to perfor
 
 ### Data Models
 
+* Django models were used to represent the tables specified in the technical design of the backend.
+* Data points are represented as attributes of the model (inheriting from django's model class).
+* For this project, all tables' primary keys are the default django ids for object instances.
+
+#### User model
+
+* This was made using the django allauth library. This library handles all authentication out of the box. From the user it takes a username, email and password.
+
+#### Profile model
+* This includes the user who sent the contact message to the site owner as a foreign key.
+* The read attribute is only used by the site admin to toggle messages they have read, and filter them out from the admin panel.
+
+| Key | Name | Type | Validation |
+|---|---|---|---|
+| fk | profile_owner | User | on_delete=models.CASCADE, null=True, |
+|  | bio | text | max_length=200, blank=False |
+|  | profile_pic | User | upload_to='images/', default="..." |
+|  | created_at | DateTime | auto_now_add=True |
+|  | updated_at | DateTime | auto_now_add=True |
+|  | status | char | max_length=300, choices=CHOICES |
+
+
 
 ### Endpoints
 
