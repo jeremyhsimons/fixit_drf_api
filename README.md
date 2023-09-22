@@ -89,6 +89,19 @@ The following user stories reflect the actions a site admin might want to perfor
 
 ## Technical Design
 
+### Data Models
+
+
+### Endpoints
+
+### Database Schema
+
+Below is an entity relationship diagram for the project. It details how the models detailed above interact with one another.
+<details>
+    <summary>Screenshot</summary>
+    <img src="docs/db_schema.png" alt="database schema diagram">
+</details>
+
 ## Features
 
 ## Technologies Used
