@@ -1,8 +1,13 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.db import models
 from django.contrib.auth.models import User
 
 
 class Post(models.Model):
+    """
+    A class to represent post data in the database.
+    """
     CHOICES = (
         ('BC', 'Bikes and Cars'),
         ('EC', 'Electronics'),

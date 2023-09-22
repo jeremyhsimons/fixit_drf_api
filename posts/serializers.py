@@ -1,10 +1,16 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import serializers
 from .models import Post
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
 from bookmarks.models import Bookmark
 from upvotes_post.models import PostUpvote
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    A class to handle post data to and from db
+    """
     post_owner = serializers.ReadOnlyField(source="author.username")
     profile_id = serializers.ReadOnlyField(source="author.profile.id")
     profile_image = serializers.ReadOnlyField(
