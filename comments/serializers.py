@@ -1,6 +1,9 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
 from .models import Comment
 from upvotes_comment.models import CommentUpvote
 
@@ -51,4 +54,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class CommentDetailSerializer(CommentSerializer):
+    """
+    Subclass of commentserializer for comment detail view.
+    """
     post = serializers.ReadOnlyField(source="post.id")

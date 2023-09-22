@@ -1,12 +1,18 @@
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
 from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
 from fixit_drf_api.permissions import IsPostCommentOwnerOrReadOnly
 
 
 class CommentList(generics.ListCreateAPIView):
+    """
+    Retrieve a list, create a comment if authenticated.
+    """
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.annotate(
@@ -29,6 +35,10 @@ class CommentList(generics.ListCreateAPIView):
 
 
 class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve a single comment, update comment, delete comment.
+    For authenticated user.
+    """
     permission_classes = [IsPostCommentOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer
     queryset = Comment.objects.annotate(
