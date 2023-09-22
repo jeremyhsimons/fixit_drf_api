@@ -1,9 +1,11 @@
-from django.test import TestCase
+# Imports
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.contrib.auth.models import User
-from .models import Bookmark
-from posts.models import Post
 from rest_framework import status
 from rest_framework.test import APITestCase
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal
+from .models import Bookmark
+from posts.models import Post
 
 
 class BookmarkListViewTest(APITestCase):
