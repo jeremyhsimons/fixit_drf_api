@@ -100,19 +100,30 @@ The following user stories reflect the actions a site admin might want to perfor
 * This was made using the django allauth library. This library handles all authentication out of the box. From the user it takes a username, email and password.
 
 #### Profile model
-* This includes the user who sent the contact message to the site owner as a foreign key.
-* The read attribute is only used by the site admin to toggle messages they have read, and filter them out from the admin panel.
+* This represents users' profile data in the database
+* The status attribute is used to filter profiles so that users can find and 'star' profiles of users who are likley to help them out on the forum.
 
 | Key | Name | Type | Validation |
 |---|---|---|---|
 | fk | profile_owner | User | on_delete=models.CASCADE, null=True, |
-|  | bio | text | max_length=200, blank=False |
-|  | profile_pic | User | upload_to='images/', default="..." |
+|  | bio | text | |
+|  | profile_pic | ImageField | upload_to='images/', default="..." |
 |  | created_at | DateTime | auto_now_add=True |
 |  | updated_at | DateTime | auto_now_add=True |
 |  | status | char | max_length=300, choices=CHOICES |
 
+#### Post model
+* This represents users' post data in the database
+* The category attribute is used to filter posts by content type so that users can view content specific to electronics or bikes etc.
 
+| Key | Name | Type | Validation |
+|---|---|---|---|
+| fk | author | User | on_delete=models.CASCADE, null=True, |
+|  | content | text | |
+|  | image | ImageField | upload_to='images/', default="..." |
+|  | created_at | DateTime | auto_now_add=True |
+|  | updated_at | DateTime | auto_now_add=True |
+|  | category | char | max_length=300, choices=CHOICES |
 
 ### Endpoints
 
