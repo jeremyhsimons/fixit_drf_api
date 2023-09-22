@@ -177,6 +177,10 @@ Below is an entity relationship diagram for the project. It details how the mode
 
 ## Features
 
+### Ideas for future development
+* Messaging system could be implemented to allow users to interact in greater depth without making the comment feed less helpful for other users.
+* Increase the options for types of posts on the site to cover more areas of DIY.
+
 ## Technologies Used
 
 ## Deployment & Local Development
