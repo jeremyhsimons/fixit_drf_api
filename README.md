@@ -20,9 +20,10 @@ This documentation will detail the features available via the API, the design, e
     * [User requirements](#user-requirements)
     * [User Manual](#user-manual)
     * [User Stories](#user-stories)
+* [Agile Workflow](#agile-workflow)
 * [Technical Design](#technical-design)
     * [Data Models](#data-models)
-    * [Endpoints]()
+    * [Endpoints](#endpoints)
     * [Database Schema](#database-schema)
 * [Features](#features)
     * [Feature Ideas for future development](#feature-ideas-for-future-development)
@@ -86,6 +87,36 @@ The following user stories reflect the actions a site admin might want to perfor
 #### Profiles
 * As an authenticated user I want to edit my profile so that other users can find out more about me.
 * As an authenticated user I want to be able to view other users’ profiles and posts so that I can comment on their posts.
+
+## Agile workflow
+
+An agile methodology was employed for this project. Epics were created and each user story was assigned to an epic. Development of the project was organised into iterations where certain features were implemented to their completion before reviewing the backlog and re-assigning tasks for the next iteration.
+
+This was achieved and tracked using the github issues/projects/kanban board features.
+
+### User stories
+
+User stories and bug reports were uploaded to the project using Github issues templates. User stories were ranked with one of the following labels:
+
+* Must have
+* Should have
+* Could have
+* Wont have (decision made that the feature is not needed and improving other features is higher priority with remaining time)
+
+These categories were used to prioritise the workload.
+
+### Epics
+
+5 epics were created using Github milestones and the user stories (uploaded as issues in the project).
+
+<img src="docs/epics1.png" alt="a screenshot of the project epics made using GitHub Milestones">
+<img src="docs/epics2.png" alt="a screenshot of the project epics made using GitHub Milestones">
+
+### Kanban board
+
+GitHub Kanban boards were used to track the progress of development:
+
+<img src="docs/kanban.png" alt="a screenshot of the project kanban board">
 
 ## Technical Design
 
