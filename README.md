@@ -214,6 +214,26 @@ Below is an entity relationship diagram for the project. It details how the mode
 
 ## Technologies Used
 
+### Languages used
+
+* Python
+
+### Frameworks/3rd party Libraries used for Python, CSS, JS
+
+* [Django](https://www.djangoproject.com/) for building the MVT architecture of the site.
+* [Django Rest Framework]()
+* [Django filters]()
+* [Cloudinary](https://cloudinary.com/) for hosting static files.
+* [Django Allauth](https://django-allauth.readthedocs.io/en/latest/) for handling all user authentication features in the site.
+
+### Other tools/websites/libraries used
+* [Lucidchart](https://lucid.app/) was used to create the entity relationship diagram.
+* [Git](https://git-scm.com/) was used for version control.
+* [GitHub](https://github.com/) was used for saving and storing files.
+* [Gitpod]() was the IDE used for writing and editing code.
+* [Heroku](https://id.heroku.com/) was used as the hosting platform for this site.
+* [ElephantSQL](https://www.elephantsql.com/) was used to host the site's postgreSQL database.
+
 ## Deployment & Local Development
 
 ## Testing
