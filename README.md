@@ -391,6 +391,8 @@ This repository can be cloned using the following process:
 
 ## Testing
 
+Details of the testing carried out on this API can be viewed in the separate testing.md file [here](#https://github.com/jeremyhsimons/fixit_drf_api/blob/main/TESTING.md)
+
 ## Validation
 
 ## Bugs
