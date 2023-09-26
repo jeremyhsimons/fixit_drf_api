@@ -13,8 +13,8 @@ This documentation will detail the features available via the API, the design, e
 ## Contents
 
 * [Project Goals](#project-goals)<br>
-    * [For the user](#for-the-user)
-    * [For the site owner](#for-the-site-owner)
+    * [For new users](#for-new-users)
+    * [For existing users](#for-existing-users)
 * [User Experience](#user-experience)<br>
     * [Target audience](#target-audience)
     * [User requirements](#user-requirements)
@@ -197,7 +197,6 @@ GitHub Kanban boards were used to track the progress of development:
 * access single post-upvote: ../post-upvote/primary-key
 * access single comment-upvote: ../comment-upvote/primary-key
 
-
 ### Database Schema
 
 Below is an entity relationship diagram for the project. It details how the models detailed above interact with one another.
@@ -207,6 +206,77 @@ Below is an entity relationship diagram for the project. It details how the mode
 </details>
 
 ## Features
+
+For the profile, posts and comments resources, a user can get a list of all instances, create an instance, retrieve and update an instance. For posts and comments users can delete their own instances.
+
+### Profiles
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/profiles_list.png"/>
+    <hr/>
+    <img src="docs/features/profile_single.png"/>
+</details>
+
+### Posts
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/post_list_1.png"/>
+    <hr/>
+    <img src="docs/features/post_list_2.png"/>
+    <hr/>
+    <img src="docs/features/post_single.png"/>
+</details>
+
+### Comments
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/comment_list_1.png"/>
+    <hr/>
+    <img src="docs/features/comment_list_2.png"/>
+    <hr/>
+    <img src="docs/features/comment_single.png"/>
+</details>
+
+For the stars, bookmarks, and upvotes resources, a user can get a list of all instances, create an instance (only if they haven't created one already for the relevant comment/post/profile), retrieve an instance and delete their own instances. There is no need for the user to update these resources as they do not have any content.
+
+### Stars
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/star_list.png"/>
+    <hr/>
+    <img src="docs/features/star_single.png"/>
+</details>
+
+### Bookmarks
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/bookmark_list.png"/>
+    <hr/>
+    <img src="docs/features/bookmark_single.png"/>
+</details>
+
+### Post Upvotes
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/post-upvotes_list.png"/>
+    <hr/>
+    <img src="docs/features/post-upvotes_single.png"/>
+</details>
+
+### Comment Upvotes
+
+<details>
+    <summary>Screenshots</summary>
+    <img src="docs/features/comment-upvote_list.png"/>
+    <hr/>
+    <img src="docs/features/comment-upvote_detail.png"/>
+</details>
 
 ### Ideas for future development
 * Messaging system could be implemented to allow users to interact in greater depth without making the comment feed less helpful for other users.
