@@ -305,6 +305,7 @@ and one could implement a leaderboard for the most active/supportive Fixit commu
 * [Gitpod]() was the IDE used for writing and editing code.
 * [Heroku](https://id.heroku.com/) was used as the hosting platform for this site.
 * [ElephantSQL](https://www.elephantsql.com/) was used to host the site's postgreSQL database.
+* [Cloudinary](https://cloudinary.com/) was used to host images.
 
 ## Deployment & Local Development
 
