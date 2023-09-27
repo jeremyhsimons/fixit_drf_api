@@ -281,6 +281,8 @@ For the stars, bookmarks, and upvotes resources, a user can get a list of all in
 ### Ideas for future development
 * Messaging system could be implemented to allow users to interact in greater depth without making the comment feed less helpful for other users.
 * Increase the options for types of posts on the site to cover more areas of DIY.
+* Implement a feature where the number of comment upvotes and post upvotes a user receives are viewable from their profile. Users could view lists of profiles based on the most comment upvotes, post upvotes as well as stars. This could be developed further to give each user an overall score in the app
+and one could implement a leaderboard for the most active/supportive Fixit community members, based on this score.
 
 ## Technologies Used
 
