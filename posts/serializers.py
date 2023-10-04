@@ -11,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
     """
     A class to handle post data to and from db
     """
-    post_owner = serializers.ReadOnlyField(source="author.username")
+    author = serializers.ReadOnlyField(source="author.username")
     profile_id = serializers.ReadOnlyField(source="author.profile.id")
     profile_image = serializers.ReadOnlyField(
         source="author.profile.image.url"
@@ -21,6 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
     upvote_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
     upvotes_count = serializers.ReadOnlyField()
+    image = serializers.ImageField(required=False)
 
     def get_bookmark_id(self, obj):
         user = self.context['request'].user
@@ -65,6 +66,6 @@ class PostSerializer(serializers.ModelSerializer):
             "id", "author", "created_at",
             "updated_at", "title", "content", "image",
             "category", "is_owner", "profile_id",
-            "profile_image", 'post_owner', 'bookmark_id',
+            "profile_image", 'bookmark_id',
             "upvote_id", "comments_count", "upvotes_count",
         ]
