@@ -12,7 +12,7 @@ class CommentSerializer(serializers.ModelSerializer):
     """
     A serializer to handle comment data to and from db.
     """
-    comment_owner = serializers.ReadOnlyField(source="author.username")
+    author = serializers.ReadOnlyField(source="author.username")
     profile_id = serializers.ReadOnlyField(source="author.profile.id")
     profile_image = serializers.ReadOnlyField(
         source="author.profile.image.url"
