@@ -192,10 +192,10 @@ GitHub Kanban boards were used to track the progress of development:
 * access single profile: ../profiles/primary-key
 * access single post: ../post/primary-key
 * access single comment: ../comment/primary-key
-* access single star: ../star/primary-key
-* access single bookmark: ../bookmark/primary-key
-* access single post-upvote: ../post-upvote/primary-key
-* access single comment-upvote: ../comment-upvote/primary-key
+* access single star: ../stars/primary-key
+* access single bookmark: ../bookmarks/primary-key
+* access single post-upvote: ../post-upvotes/primary-key
+* access single comment-upvote: ../comment-upvotes/primary-key
 
 ### Database Schema
 
