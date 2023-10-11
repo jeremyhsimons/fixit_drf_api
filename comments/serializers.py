@@ -48,7 +48,7 @@ class CommentSerializer(serializers.ModelSerializer):
             "id", "author", "post", "created_at",
             "updated_at", "content",
             "is_owner", "profile_id",
-            "profile_image", 'comment_owner', 'upvote_id',
+            "profile_image", 'upvote_id',
             "upvotes_count",
         ]
 
