@@ -1,5 +1,11 @@
+"""
+Views to handle logic of sending/receiving bookmark data
+"""
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 3rd party imports
 from rest_framework import generics, permissions
 from fixit_drf_api.permissions import IsBookmarkOwnerOrReadOnly
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal imports
 from .models import Star
 from .serializers import StarSerializer
 

@@ -1,3 +1,7 @@
+"""
+Views to handle logic of sending/receiving comment upvote data
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import generics, permissions

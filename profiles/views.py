@@ -1,3 +1,7 @@
+"""
+Views to handle logic of sending/receiving profile data
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.db.models import Count
