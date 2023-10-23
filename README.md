@@ -562,11 +562,11 @@ All python files used in the application were passed through Code Institutes [Pe
 
 ### 3rd party libraries and packages used
 
-* [Django v3.2]()
-* [Pillow]()
-* [Django Cloudinary Storage]()
-* [Django Filters]()
-
+* [Django v3.2](https://www.djangoproject.com/)
+* [Django rest framework](https://www.django-rest-framework.org/)
+* [Pillow](https://pypi.org/project/Pillow/) for image processing
+* [Django Cloudinary Storage](https://pypi.org/project/django-cloudinary-storage/)
+* [Django Filters](https://django-filter.readthedocs.io/en/stable/)
 
 ### Other platforms/services used
 
@@ -581,7 +581,7 @@ All python files used in the application were passed through Code Institutes [Pe
 
 * This [blog post](https://dev.to/markpy/working-with-django-model-choicefield-2km4) helped me to design models that included choices by which the data could be filtered using django filters.
 
-* This project drew heavily upon the Code Institute Django Rest Framework tutorial. Ideas borrowed from this project include:
+* This project drew heavily upon the [Code Institute](https://codeinstitute.net/) Django Rest Framework tutorial. Ideas borrowed from this project include:
     * Automatic profile creation when new users sign up.
     * Filtering of posts and profiles using django filters.
     * Refactoring views into Generic class views that reduce verbosity.
