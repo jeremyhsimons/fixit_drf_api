@@ -339,7 +339,8 @@ Before deploying to Heroku, environment variables must be defined in the django 
 2. import os to the file.
 3. os.environ['DATABASE_URL'] = URL copied from ElephantSQL
 4. os.environ['SECRET_KEY'] = A randomly generated key of your choosing. This keeps django from serving data to/from an unauthorised source.
-5. os.environ['CLOUDINARY_URL'] = The URL from a cloudinary account. This can be found on the following page on the [cloudinary website](#https://cloudinary.com/)
+5. os.environ['CLOUDINARY_URL'] = The URL from a cloudinary account. This can be found on the following page on the [cloudinary website](https://cloudinary.com/)
+
 <img src="docs/deployment/cloudinary.png">
 
 These environment variables can now be accessed and configured in the settings.py file of the django project.
@@ -359,10 +360,12 @@ The website was deployed to Heroku using the following process:
 <img src="docs/deployment/heroku5.png">
 7. Click on the settings tab.
 <img src="docs/deployment/heroku6.png">
-8. Scroll down to the config vars section, and add config vars specified at the start of this section of the README. Also, include a var with the key 'PORT' and value '8000' to avoid build errors. The end result should look something like this:
-KEY: DATABASE_URL
-VALUE: postgresurlexample123.com
-<img src="docs/deployment/heroku-config.png">
+8. Scroll down to the config vars section, and add config vars specified at the start of this section of the README. Also, includetwo vars, CLIENT_ORIGIN and CLIENT_ORIGIN_DEV. These will allow the development and production front ends to connect to the back end. They should look something like this:
+| KEY | VALUE |
+| --- | --- |
+| CLIENT_ORIGIN | live-site-url.com |
+| CLIENT_ORIGIN_DEV | localhost-or-ide-url.com |
+
 9. Navigate back to the 'deploy' tab.
 10.  Select automatic deploys to allow Heroku to build the site with new changes each time changes are pushed to GitHub.
 <img src="docs/deployment/heroku9.png">
