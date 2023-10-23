@@ -1,3 +1,7 @@
+"""
+Serializer for post data.
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import serializers

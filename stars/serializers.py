@@ -1,5 +1,10 @@
+"""
+Serializer for star data.
+"""
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 3rd party imports
 from django.db import IntegrityError
 from rest_framework import serializers
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Internal imports
 from .models import Star
 
 

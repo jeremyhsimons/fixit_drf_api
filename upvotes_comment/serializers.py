@@ -1,3 +1,7 @@
+"""
+Serializer for comment upvote data.
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.db import IntegrityError

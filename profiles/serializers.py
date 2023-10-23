@@ -1,3 +1,7 @@
+"""
+Serializer for profile data.
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from rest_framework import serializers

@@ -1,3 +1,7 @@
+"""
+Serializer for bookmark data.
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.db import IntegrityError

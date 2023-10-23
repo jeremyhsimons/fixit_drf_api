@@ -1,3 +1,7 @@
+"""
+Serializer for comment data.
+"""
+
 # Imports
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Django
 from django.contrib.humanize.templatetags.humanize import naturaltime
