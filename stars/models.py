@@ -1,6 +1,10 @@
+"""
+Fields for star data in the database
+"""
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 3rd party imports
 from django.db import models
 from django.contrib.auth.models import User
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ internal imports
 from profiles.models import Profile
 
 
