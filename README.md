@@ -586,4 +586,8 @@ All python files used in the application were passed through Code Institutes [Pe
     * Filtering of posts and profiles using django filters.
     * Refactoring views into Generic class views that reduce verbosity.
 
-###
+### Acknowledgements
+
+* Many thanks to my friends Sam and Adam who offered to test my application.
+* Many thanks to the CI London community for all their moral support and help for the duration of the course.
+* Huge thanks to my mentor Mo Shami for his expertise and encouragement for the duration of the course. His guidance has helped me not to miss crucial details in this project and I am grateful for him pushing me to always do my best. In this project I am particularly grateful for him pushing me to make the most of the learning opportunities working with Django rest framework AND React.
