@@ -553,5 +553,37 @@ All python files used in the application were passed through Code Institutes [Pe
 </details>
 
 ## Bugs
+| Bug | Action taken to fix |
+| --- | --- |
+| Trying to post a comment to the api from my react front end resulted in a 500 error. | I had not included the author field of the comment model as a read only field in the serializer, so the back end logic would break. Amending this fixed the error. |
+| Trying to post a post to the api from the React front end resulted in a 401 error. | I hadn’t defined my author field as a read only field in the post serializer, so the data sent from the front end was not recognised as sending author data (even though it was sending things correctly) because the serializer was not passing the model the correctly named fields. |
 
 ## Credits
+
+### 3rd party libraries and packages used
+
+* [Django v3.2]()
+* [Pillow]()
+* [Django Cloudinary Storage]()
+* [Django Filters]()
+
+
+### Other platforms/services used
+
+* [Cloudinary](https://cloudinary.com/) for image hosting
+* [ElephantSQL](https://www.elephantsql.com/) for database hosting
+* [Heroku](https://dashboard.heroku.com/login) for Paas hosting.
+* [Gitpod](https://gitpod.io/) for code editing.
+* [lucidchart](https://www.lucidchart.com/) for sketching database design.
+* [Git & Github](https://github.com/) for version control and agile project management.
+
+### Tutorials that helped this project
+
+* This [blog post](https://dev.to/markpy/working-with-django-model-choicefield-2km4) helped me to design models that included choices by which the data could be filtered using django filters.
+
+* This project drew heavily upon the Code Institute Django Rest Framework tutorial. Ideas borrowed from this project include:
+    * Automatic profile creation when new users sign up.
+    * Filtering of posts and profiles using django filters.
+    * Refactoring views into Generic class views that reduce verbosity.
+
+###
